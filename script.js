@@ -46,6 +46,7 @@ const teste = document.getElementsByTagName('h2')
 function reinicia(){
     dados.forEach((d)=>{
         d.checked = false;
+        d.disabled = false;
     })
     rodada = 0;
     botao.disabled = false;
