@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahtzee!</title>
+</head>
+<body>
+    
+<div class="jogoContainer">
+    <div class="dadoContainer"></div>
+    <div class="tabelaContainer">
+        <div class="upperSection">
+            <table border="1">
+                <tr>
+                    <th>Seção superior</th>
+                    <th>Como marcar</th>
+                    <th>Jogo #1</th>
+                    <th>Jogo #2</th>
+                    <th>Jogo #3</th>
+                    <th>Jogo #4</th>
+                    <th>Jogo #5</th>
+                    <th>Jogo #6</th>
+                </tr>
+                <tr>
+                    <td>Dados um</td>
+                    <td>Soma dos valores 1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Dados dois</td>
+                    <td>Soma dos valores 2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Dados tres</td>
+                    <td>Soma dos valores 3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Dados quatro</td>
+                    <td>Soma dos valores 4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Dados cinco</td>
+                    <td>Soma dos valores 5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Dados seis</td>
+                    <td>Soma dos valores 6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pontos totais</td>
+                    <td>→</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Bonus <span>Se fizer mais de 63 pontos</span></td>
+                    <td>35 pontos</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Total da seção</td>
+                    <td>→</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="lowerSection">
+            <table border="1">
+                <tr>
+                    <td>Trinca</td>
+                    <td>Soma o total dos dados</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Quadra</td>
+                    <td>Soma o total dos dados</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Full House</td>
+                    <td>25 pontos</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Sequência menor <span>4 em sequência</span></td>
+                    <td>30 pontos</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Sequência maior <span>5 em sequência</span></td>
+                    <td>40 pontos</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>YAHTZEE<span>5 IGUAIS</span></td>
+                    <td>50 pontos</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Chance</td>
+                    <td>Soma todos os dados</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">YAHTZEE BÔNUS</td>
+                    <td>✔ para cada bônus</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td>100 pontos por ✔</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Total da seção inferior</td>
+                    <td>→</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Total da seção superior</td>
+                    <td>→</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Total geral</td>
+                    <td>→</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>                
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
