@@ -1,0 +1,12 @@
+td {
+    background-color: var(--cor1);
+    padding: 4px 8px;
+    height: 40px;
+    max-inline-size: 75px;
+}
+th{
+    background-color: var(--cor2);
+    padding: 4px 8px;
+    height: 40px;
+    max-inline-size: 75px;
+}
