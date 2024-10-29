@@ -1,18 +1,35 @@
-th{
-    background-color: var(--cor2);
-    padding: 4px 8px;
-
+h2 {
+  font-size: 1rem;
+  padding: 0;
+  margin: 12px 0 4px 4px;
+}
+tr{
+    height: 30px;
+}
+th {
+  background-color: var(--cor2);
+  padding: 4px 8px;
 }
 td {
-    background-color: var(--cor1);
-    padding: 4px 8px;
-    margin: 5px;
+  background-color: var(--cor1);
+  padding: 4px;
+  margin: 5px;
+  width: 80px;
 }
-span{
-    font-size: .7rem;
-    display: block;
+span {
+  font-size: 0.65rem;
+  display: block;
 }
-.dados{
-    font-size: 1.5rem;
-    display: inline;
+.dados {
+  font-size: 1.5rem;
+  display: inline;
+  vertical-align: middle;
 }
+.how {
+  font-size: 0.8rem;
+}
+.seta {
+  font-size: 1.3rem;
+  padding-left: 12px;
+}
+
