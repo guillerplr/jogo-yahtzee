@@ -1,30 +1,58 @@
-.dadoContainer{
+.dadoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.dadoContainer button {
+  border: none;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background-color: var(--cor4);
+  color: #eee;
+  cursor: pointer;
+  padding: 8px 24px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.1s ease;
+  margin-bottom: 32px;
+}
+
+.dadoContainer button:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.dadoContainer label {
+  cursor: pointer;
+  font-size: 5rem;
+  user-select: none;
+  transition: all 0.1s ease;
+  border: solid 1px rgba(0, 0, 0, 0);
+  padding: 4px;
+}
+
+.dadoContainer input {
+  display: none;
+}
+
+.dadoContainer input:checked + label {
+  color: green;
+  padding: 0;
+  margin: 4px;
+  border: solid 1px green;
+}
+
+.trys{
+    margin-top: -25px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    gap: 4px;
 }
 
-.dadoContainer button{
-    border: none;
-    font-size: 2rem;
-    text-transform: uppercase;
-    background-color: var(--cor4);
-    color: #EEE;
-    cursor: pointer;
-    padding: 8px 24px;
-    border-radius: 8px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s ease;
-    margin-bottom: 32px;
-}
-
-.dadoContainer button:hover{
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
-}
-
-.dadoContainer div{
-    font-size: 5rem;
+#try1, #try2, #try3{
+    width: 10px;
+    height: 10px;
+    background-color: var(--cor3);
 }

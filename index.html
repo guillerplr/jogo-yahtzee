@@ -1,257 +1,264 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yahtzee!</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    
-<div class="jogoContainer">
-    <div class="dadoContainer">
-        <button>Rolar</button>
-        <div id="res1">⚀</div>
-        <div id="res2">⚁</div>
-        <div id="res3">⚂</div>
-        <div id="res4">⚃</div>
-        <div id="res5">⚄</div>
-        
-    </div>
-    <div class="tabelaContainer">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="jogoContainer">
+      <div class="dadoContainer">
+        <button id="rolar">Rolar</button>
+        <div class="trys">
+          <div id="try1"></div>
+          <div id="try2"></div>
+          <div id="try3"></div>
+        </div>
+        <input type="checkbox" id="res1" />
+        <label for="res1">⚀</label>
+        <input type="checkbox" id="res2" />
+        <label for="res2">⚁</label>
+        <input type="checkbox" id="res3" />
+        <label for="res3">⚂</label>
+        <input type="checkbox" id="res4" />
+        <label for="res4">⚃</label>
+        <input type="checkbox" id="res5" />
+        <label for="res5">⚄</label>
+      </div>
+      <div class="tabelaContainer">
         <div class="upperSection">
-            <h2>Seção superior</h2>
-            <table>
-                <tr>
-                    <th></th>
-                    <th>Como marcar</th>
-                    <th class="jogada">Jogo #1</th>
-                    <th class="jogada">Jogo #2</th>
-                    <th class="jogada">Jogo #3</th>
-                    <th class="jogada">Jogo #4</th>
-                    <th class="jogada">Jogo #5</th>
-                    <th class="jogada">Jogo #6</th>
-                </tr>
-                <tr>
-                    <td>Dados <span class="dados">⚀</span></td>
-                    <td class="how">Soma dos valores 1</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Dados <span class="dados">⚁</span></td>
-                    <td class="how">Soma dos valores 2</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Dados <span class="dados">⚂</span></td>
-                    <td class="how">Soma dos valores 3</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Dados <span class="dados">⚃</span></td>
-                    <td class="how">Soma dos valores 4</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Dados <span class="dados">⚄</span></td>
-                    <td class="how">Soma dos valores 5</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Dados <span class="dados">⚅</span></td>
-                    <td class="how">Soma dos valores 6</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Pontos totais</td>
-                    <td class="seta">➡</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Bonus <span>Se fizer mais de 63 pontos</span></td>
-                    <td class="how">35 pontos</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Total da seção</td>
-                    <td class="seta">➡</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-            </table>
+          <h2>Seção superior</h2>
+          <table>
+            <tr>
+              <th></th>
+              <th>Como marcar</th>
+              <th class="jogada">Jogo #1</th>
+              <th class="jogada">Jogo #2</th>
+              <th class="jogada">Jogo #3</th>
+              <th class="jogada">Jogo #4</th>
+              <th class="jogada">Jogo #5</th>
+              <th class="jogada">Jogo #6</th>
+            </tr>
+            <tr>
+              <td>Dados <span class="dados">⚀</span></td>
+              <td class="how">Soma dos valores 1</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Dados <span class="dados">⚁</span></td>
+              <td class="how">Soma dos valores 2</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Dados <span class="dados">⚂</span></td>
+              <td class="how">Soma dos valores 3</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Dados <span class="dados">⚃</span></td>
+              <td class="how">Soma dos valores 4</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Dados <span class="dados">⚄</span></td>
+              <td class="how">Soma dos valores 5</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Dados <span class="dados">⚅</span></td>
+              <td class="how">Soma dos valores 6</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Pontos totais</td>
+              <td class="seta">➡</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Bonus <span>Se fizer mais de 63 pontos</span></td>
+              <td class="how">35 pontos</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Total da seção</td>
+              <td class="seta">➡</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+          </table>
         </div>
         <div class="lowerSection">
-            <h2>Seção inferior</h2>
-            <table>
-                <tr>
-                    <td>Trinca</td>
-                    <td class="how">Soma o total dos dados</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Quadra</td>
-                    <td class="how">Soma o total dos dados</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Full House</td>
-                    <td class="how">25 pontos</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Sequência menor <span>4 em sequência</span></td>
-                    <td class="how">30 pontos</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Sequência maior <span>5 em sequência</span></td>
-                    <td class="how">40 pontos</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>YAHTZEE<span>5 IGUAIS</span></td>
-                    <td class="how">50 pontos</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Chance</td>
-                    <td class="how">Soma todos os dados</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td rowspan="2">YAHTZEE BÔNUS</td>
-                    <td><span>✔ para cada bônus</span></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    
-                    <td><span>100 pontos por ✔</span></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Total da seção inferior</td>
-                    <td class="seta">➡</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Total da seção superior</td>
-                    <td class="seta">➡</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>
-                <tr>
-                    <td>Total geral</td>
-                    <td class="seta">➡</td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                    <td class="jogada"></td>
-                </tr>                
-            </table>
+          <h2>Seção inferior</h2>
+          <table>
+            <tr>
+              <td>Trinca</td>
+              <td class="how">Soma o total dos dados</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Quadra</td>
+              <td class="how">Soma o total dos dados</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Full House</td>
+              <td class="how">25 pontos</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Sequência menor <span>4 em sequência</span></td>
+              <td class="how">30 pontos</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Sequência maior <span>5 em sequência</span></td>
+              <td class="how">40 pontos</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>YAHTZEE<span>5 IGUAIS</span></td>
+              <td class="how">50 pontos</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Chance</td>
+              <td class="how">Soma todos os dados</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td rowspan="2">YAHTZEE BÔNUS</td>
+              <td><span>✔ para cada bônus</span></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td><span>100 pontos por ✔</span></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Total da seção inferior</td>
+              <td class="seta">➡</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Total da seção superior</td>
+              <td class="seta">➡</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+            <tr>
+              <td>Total geral</td>
+              <td class="seta">➡</td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+              <td class="jogada"></td>
+            </tr>
+          </table>
         </div>
+      </div>
     </div>
-</div>
 
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
