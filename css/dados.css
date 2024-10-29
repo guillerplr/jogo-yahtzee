@@ -11,13 +11,24 @@
   font-size: 2rem;
   text-transform: uppercase;
   background-color: var(--cor4);
-  color: #eee;
+  color: #FFF;
   cursor: pointer;
   padding: 8px 24px;
   border-radius: 8px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.1s ease;
   margin-bottom: 32px;
+}
+
+.dadoContainer button:disabled {
+  background-color: var(--cor2);
+  text-decoration: line-through;
+}
+
+.dadoContainer button:disabled:hover {
+  background-color: var(--cor2);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transform: scale(1);
 }
 
 .dadoContainer button:hover {
@@ -45,14 +56,18 @@
   border: solid 1px green;
 }
 
-.trys{
-    margin-top: -25px;
-    display: flex;
-    gap: 4px;
+.trys {
+  margin-top: -25px;
+  display: flex;
+  gap: 4px;
 }
 
-#try1, #try2, #try3{
-    width: 10px;
-    height: 10px;
-    background-color: var(--cor3);
+.trys div {
+  width: 10px;
+  height: 10px;
+  background-color: var(--cor3);
+}
+
+.foi {
+  background-color: green !important;
 }
