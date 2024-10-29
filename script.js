@@ -41,11 +41,16 @@ function handleClick(btn) {
   });
 }
 
+const teste = document.getElementsByTagName('h2')
+
 function reinicia(){
     dados.forEach((d)=>{
         d.checked = false;
     })
     rodada = 0;
     botao.disabled = false;
-
+    tentativas.forEach(e => {
+        e.classList.remove('foi')
+    })
 }
+teste[0].addEventListener('click', reinicia)
