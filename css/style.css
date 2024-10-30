@@ -1,17 +1,22 @@
-@import url('/css/tabela.css');
-@import url('/css/dados.css');
+@import url("/css/tabela.css");
+@import url("/css/dados.css");
 
-*{
-    --cor1: #F3EEEA;
-    --cor2: #EBE3D5;
-    --cor3: #B0A695;
-    --cor4: #776B5D;
-    color: #222;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: .9rem;
+* {
+  --cor1: #444;
+  --cor2: #666;
+  --cor3: #777;
+  --cor4: #888;
+  color: #ddd;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
 }
-.jogoContainer{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 3fr;
+
+body {
+  background-color: #222;
+}
+
+.jogoContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
 }

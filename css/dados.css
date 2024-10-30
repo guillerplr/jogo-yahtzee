@@ -1,3 +1,16 @@
+.proxima {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  text-decoration: none;
+  background-color: var(--cor4);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.1s ease;
+  display: none;
+}
+
 .dadoContainer {
   display: flex;
   flex-direction: column;
@@ -11,7 +24,7 @@
   font-size: 2rem;
   text-transform: uppercase;
   background-color: var(--cor4);
-  color: #FFF;
+  color: #fff;
   cursor: pointer;
   padding: 8px 24px;
   border-radius: 8px;
@@ -31,6 +44,7 @@
   transform: scale(1);
 }
 
+.proxima:hover,
 .dadoContainer button:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
