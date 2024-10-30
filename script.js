@@ -17,28 +17,28 @@ let rodada = 0;
 
 const resultados = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
 const labels = [];
+marcados = [];
 
 let dados = document.querySelectorAll('input[type="checkbox"]');
+
 dados.forEach((e, i) => {
   labels[i] = document.querySelector('label[for="' + e.id + '"]');
-});
-
-dados.forEach((d) => {
-  d.disabled = true;
+  e.disabled = true;
 });
 
 function rolar() {
   return resultados[Math.floor(Math.random() * 6)];
 }
 
-function selecionado(item) {
-  reinicia();
-  const escolha = item.target.innerHTML;
+function selecionado(item, index) {
+  marcados.push(index);
+  const escolha = item.innerHTML;
   jogos[jogada].forEach((e) => {
     e.classList.remove("clicavel");
     e.innerHTML = "";
   });
-  item.target.innerHTML = escolha;
+  reinicia();
+  item.innerHTML = escolha;
 }
 
 function finalizaRodada() {
@@ -70,11 +70,13 @@ function finalizaRodada() {
     contador[elemento] = (contador[elemento] || 0) + 1;
   }
 
-  jogos[jogada].forEach((e) => {
-    e.addEventListener("click", function (e) {
-      selecionado(e);
-    });
-    e.classList.add("clicavel");
+  jogos[jogada].forEach((e, i) => {
+    const clickHandler = selecionado.bind(null, e, i);
+    if (!marcados.includes(i)) {
+      e.addEventListener("click", clickHandler);
+      e.clickHandler = clickHandler;
+      e.classList.add("clicavel");
+    }
   });
 
   jogos[jogada][6].classList.remove("clicavel");
@@ -87,12 +89,18 @@ function finalizaRodada() {
   jogos[jogada][20].classList.remove("clicavel");
 
   // SEÇÃO SUPERIOR
-  jogos[jogada][0].innerHTML = contador["1"] ? contador["1"] * 1 : 0;
-  jogos[jogada][1].innerHTML = contador["2"] ? contador["2"] * 2 : 0;
-  jogos[jogada][2].innerHTML = contador["3"] ? contador["3"] * 3 : 0;
-  jogos[jogada][3].innerHTML = contador["4"] ? contador["4"] * 4 : 0;
-  jogos[jogada][4].innerHTML = contador["5"] ? contador["5"] * 5 : 0;
-  jogos[jogada][5].innerHTML = contador["6"] ? contador["6"] * 6 : 0;
+  if (!marcados.includes(0))
+    jogos[jogada][0].innerHTML = contador["1"] ? contador["1"] * 1 : 0;
+  if (!marcados.includes(1))
+    jogos[jogada][1].innerHTML = contador["2"] ? contador["2"] * 2 : 0;
+  if (!marcados.includes(2))
+    jogos[jogada][2].innerHTML = contador["3"] ? contador["3"] * 3 : 0;
+  if (!marcados.includes(3))
+    jogos[jogada][3].innerHTML = contador["4"] ? contador["4"] * 4 : 0;
+  if (!marcados.includes(4))
+    jogos[jogada][4].innerHTML = contador["5"] ? contador["5"] * 5 : 0;
+  if (!marcados.includes(5))
+    jogos[jogada][5].innerHTML = contador["6"] ? contador["6"] * 6 : 0;
 
   //SEÇÃO INFERIOR
   //trinca
@@ -210,11 +218,15 @@ function reinicia() {
   });
   rodada = 0;
   botao.disabled = false;
-  // proxima.style.display = "none";
   tentativas.forEach((e) => {
     e.classList.remove("foi");
   });
+  jogos[jogada].forEach((e, i) => {
+    e.removeEventListener("click", e.clickHandler);
+  });
+  // proxima.style.display = "none";
 }
+
 // proxima.addEventListener("click", (e) => {
 //   e.preventDefault();
 //   reinicia();
