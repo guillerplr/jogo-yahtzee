@@ -10,8 +10,8 @@ dados.forEach((e, i) => {
 });
 
 dados.forEach((d) => {
-    d.disabled = true;
-  });
+  d.disabled = true;
+});
 
 let rodada = 0;
 
@@ -27,9 +27,9 @@ function handleClick(btn) {
   if (rodada < 2) {
     tentativas[rodada].classList.add("foi");
     dados.forEach((d) => {
-        d.disabled = false;
-      });
- } else {
+      d.disabled = false;
+    });
+  } else {
     botao.disabled = true;
     tentativas[rodada].classList.add("foi");
     dados.forEach((d) => {
@@ -44,18 +44,16 @@ function handleClick(btn) {
       labels[i].innerHTML = valor;
     }
   });
-  if(rodada == 3){
-    dados.forEach(d=>{
-        d.checked = true;
-    })
+  if (rodada == 3) {
+    dados.forEach((d) => {
+      d.checked = true;
+    });
   }
-
 }
 
 const teste = document.getElementsByTagName("h2");
 
 function reinicia() {
-    
   dados.forEach((d) => {
     d.checked = false;
     d.disabled = true;
