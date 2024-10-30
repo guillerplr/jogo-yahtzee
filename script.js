@@ -93,28 +93,57 @@ function finalizaRodada() {
   }
   //fullhouse
   jogos[jogada][11].innerHTML = 0;
-  console.log(Object.keys(contador).length)
   if (Object.keys(contador).length == 2) {
-    console.log('entrou no 1')
     for (const prop in contador) {
       if (contador[prop] == 3 || contador[prop] == 2) {
-    console.log('entrou no 2')
-
         jogos[jogada][11].innerHTML = 25;
       }
     }
   }
   //sequencia menor
   jogos[jogada][12].innerHTML = 0;
+  if (Object.keys(contador).length == 4) {
+    if (contador["1"] && contador["2"] && contador["3"] && contador["4"])
+      jogos[jogada][12].innerHTML = 30;
+    if (contador["5"] && contador["2"] && contador["3"] && contador["4"])
+      jogos[jogada][12].innerHTML = 30;
+    if (contador["5"] && contador["6"] && contador["3"] && contador["4"])
+      jogos[jogada][12].innerHTML = 30;
+  }
 
   //sequencia maior
   jogos[jogada][13].innerHTML = 0;
-
+  if (Object.keys(contador).length == 5) {
+    if (
+      contador["1"] &&
+      contador["2"] &&
+      contador["3"] &&
+      contador["4"] &&
+      contador["5"]
+    )
+      jogos[jogada][13].innerHTML = 40;
+    if (
+      contador["6"] &&
+      contador["2"] &&
+      contador["3"] &&
+      contador["4"] &&
+      contador["5"]
+    )
+      jogos[jogada][13].innerHTML = 40;
+  }
   //yahtzee
   jogos[jogada][14].innerHTML = 0;
+  if (Object.keys(contador).length == 1) {
+    jogos[jogada][14].innerHTML = 50;
+  }
 
   //chance
   jogos[jogada][15].innerHTML = 0;
+  let chance = 0;
+  valores.forEach((e) => {
+    chance += e;
+  });
+  jogos[jogada][15].innerHTML = chance;
 }
 
 function handleClick(btn) {
