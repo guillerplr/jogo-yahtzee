@@ -128,7 +128,6 @@ function handleClick(btn) {
       d.disabled = false;
     });
   } else {
-    finalizaRodada();
     botao.disabled = true;
     proxima.style.display = "block";
     tentativas[rodada].classList.add("foi");
@@ -137,7 +136,7 @@ function handleClick(btn) {
     });
   }
   rodada = rodada + 1;
-
+  
   dados.forEach((d, i) => {
     if (!d.checked) {
       labels[i].innerHTML = rolar();
@@ -147,6 +146,7 @@ function handleClick(btn) {
     dados.forEach((d) => {
       d.checked = true;
     });
+    finalizaRodada();
   }
 }
 
