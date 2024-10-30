@@ -57,11 +57,8 @@ function finalizaRodada() {
   });
   const contador = {};
   for (let elemento of valores) {
-    console.log(elemento);
     contador[elemento] = (contador[elemento] || 0) + 1;
   }
-  console.log(valores);
-  console.log(contador);
 
   // SEÇÃO SUPERIOR
   jogos[jogada][0].innerHTML = contador["1"] ? contador["1"] * 1 : 0;
@@ -96,27 +93,28 @@ function finalizaRodada() {
   }
   //fullhouse
   jogos[jogada][11].innerHTML = 0;
-  for (const prop in contador) {
-    console.log(contador);
-    if (contador[prop] >= 4) {
-      let total = 0;
-      valores.forEach((e) => {
-        total += e;
-      });
-      jogos[jogada][10].innerHTML = total;
+  console.log(Object.keys(contador).length)
+  if (Object.keys(contador).length == 2) {
+    console.log('entrou no 1')
+    for (const prop in contador) {
+      if (contador[prop] == 3 || contador[prop] == 2) {
+    console.log('entrou no 2')
+
+        jogos[jogada][11].innerHTML = 25;
+      }
     }
   }
   //sequencia menor
-  jogos[jogada][11].innerHTML = 0;
+  jogos[jogada][12].innerHTML = 0;
 
   //sequencia maior
-  jogos[jogada][11].innerHTML = 0;
+  jogos[jogada][13].innerHTML = 0;
 
   //yahtzee
-  jogos[jogada][11].innerHTML = 0;
+  jogos[jogada][14].innerHTML = 0;
 
   //chance
-  jogos[jogada][11].innerHTML = 0;
+  jogos[jogada][15].innerHTML = 0;
 }
 
 function handleClick(btn) {
@@ -136,7 +134,7 @@ function handleClick(btn) {
     });
   }
   rodada = rodada + 1;
-  
+
   dados.forEach((d, i) => {
     if (!d.checked) {
       labels[i].innerHTML = rolar();
