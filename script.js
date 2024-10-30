@@ -57,6 +57,7 @@ function finalizaRodada() {
   });
   const contador = {};
   for (let elemento of valores) {
+    console.log(elemento);
     contador[elemento] = (contador[elemento] || 0) + 1;
   }
   console.log(valores);
@@ -74,7 +75,6 @@ function finalizaRodada() {
   //trinca
   jogos[jogada][9].innerHTML = 0;
   for (const prop in contador) {
-    console.log(contador[prop]);
     if (contador[prop] >= 3) {
       let total = 0;
       valores.forEach((e) => {
@@ -86,7 +86,6 @@ function finalizaRodada() {
   //quadra
   jogos[jogada][10].innerHTML = 0;
   for (const prop in contador) {
-    console.log(contador[prop]);
     if (contador[prop] >= 4) {
       let total = 0;
       valores.forEach((e) => {
@@ -97,7 +96,16 @@ function finalizaRodada() {
   }
   //fullhouse
   jogos[jogada][11].innerHTML = 0;
-
+  for (const prop in contador) {
+    console.log(contador);
+    if (contador[prop] >= 4) {
+      let total = 0;
+      valores.forEach((e) => {
+        total += e;
+      });
+      jogos[jogada][10].innerHTML = total;
+    }
+  }
   //sequencia menor
   jogos[jogada][11].innerHTML = 0;
 
@@ -120,6 +128,7 @@ function handleClick(btn) {
       d.disabled = false;
     });
   } else {
+    finalizaRodada();
     botao.disabled = true;
     proxima.style.display = "block";
     tentativas[rodada].classList.add("foi");
