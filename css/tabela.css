@@ -33,3 +33,13 @@ span {
   padding-left: 12px;
 }
 
+.jogada{
+  font-size: 1rem;
+  text-align: center;
+  color: #FFF;
+}
+
+.clicavel{
+  background-color: var(--cor3);
+  cursor: pointer;
+}

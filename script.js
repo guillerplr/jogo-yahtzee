@@ -1,6 +1,6 @@
 const botao = document.querySelector("#rolar");
 botao.addEventListener("click", handleClick);
-const proxima = document.querySelector(".proxima");
+// const proxima = document.querySelector(".proxima");
 const tentativas = document.querySelectorAll("#try");
 
 const jogo1 = document.querySelectorAll("tr td:nth-child(3)");
@@ -31,6 +31,16 @@ function rolar() {
   return resultados[Math.floor(Math.random() * 6)];
 }
 
+function selecionado(item) {
+  reinicia();
+  const escolha = item.target.innerHTML;
+  jogos[jogada].forEach((e) => {
+    e.classList.remove("clicavel");
+    e.innerHTML = "";
+  });
+  item.target.innerHTML = escolha;
+}
+
 function finalizaRodada() {
   const valores = [];
   labels.forEach((e, i) => {
@@ -59,6 +69,22 @@ function finalizaRodada() {
   for (let elemento of valores) {
     contador[elemento] = (contador[elemento] || 0) + 1;
   }
+
+  jogos[jogada].forEach((e) => {
+    e.addEventListener("click", function (e) {
+      selecionado(e);
+    });
+    e.classList.add("clicavel");
+  });
+
+  jogos[jogada][6].classList.remove("clicavel");
+  jogos[jogada][7].classList.remove("clicavel");
+  jogos[jogada][8].classList.remove("clicavel");
+  jogos[jogada][16].classList.remove("clicavel");
+  jogos[jogada][17].classList.remove("clicavel");
+  jogos[jogada][18].classList.remove("clicavel");
+  jogos[jogada][19].classList.remove("clicavel");
+  jogos[jogada][20].classList.remove("clicavel");
 
   // SEÇÃO SUPERIOR
   jogos[jogada][0].innerHTML = contador["1"] ? contador["1"] * 1 : 0;
@@ -156,7 +182,7 @@ function handleClick(btn) {
     });
   } else {
     botao.disabled = true;
-    proxima.style.display = "block";
+    // proxima.style.display = "block";
     tentativas[rodada].classList.add("foi");
     dados.forEach((d) => {
       d.disabled = true;
@@ -184,12 +210,12 @@ function reinicia() {
   });
   rodada = 0;
   botao.disabled = false;
-  proxima.style.display = "none";
+  // proxima.style.display = "none";
   tentativas.forEach((e) => {
     e.classList.remove("foi");
   });
 }
-proxima.addEventListener("click", (e) => {
-  e.preventDefault();
-  reinicia();
-});
+// proxima.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   reinicia();
+// });
