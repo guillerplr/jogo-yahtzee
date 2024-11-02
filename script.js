@@ -1,8 +1,10 @@
 const botao = document.querySelector("#rolar");
 botao.addEventListener("click", handleClick);
-// const proxima = document.querySelector(".proxima");
 const tentativas = document.querySelectorAll("#try");
+// antigo botão próxima
+// const proxima = document.querySelector(".proxima");
 
+//seleciona células de cada jogo
 const jogo1 = document.querySelectorAll("tr td:nth-child(3)");
 const jogo2 = document.querySelectorAll("tr td:nth-child(4)");
 const jogo3 = document.querySelectorAll("tr td:nth-child(5)");
@@ -12,37 +14,46 @@ const jogo6 = document.querySelectorAll("tr td:nth-child(8)");
 
 const jogos = [jogo1, jogo2, jogo3, jogo4, jogo5, jogo6];
 
+//incia o jogo (6)
 let jogada = 0;
+//inicia rodada (13)
 let rodada = 0;
 
+//possíveis dados
 const resultados = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+let dados = document.querySelectorAll('input[type="checkbox"]');
+
 const labels = [];
 marcados = [];
 
-let dados = document.querySelectorAll('input[type="checkbox"]');
-
+//inicia o dado desativado
 dados.forEach((e, i) => {
   labels[i] = document.querySelector('label[for="' + e.id + '"]');
   e.disabled = true;
 });
 
+//gera um número aleatório de 1 a 6
 function rolar() {
   return resultados[Math.floor(Math.random() * 6)];
 }
 
+//selecionando uma pontuação
 function selecionado(item, index) {
   marcados.push(index);
   const escolha = item.innerHTML;
-  jogos[jogada].forEach((e) => {
+  jogos[jogada].forEach((e, i) => {
     e.classList.remove("clicavel");
-    e.innerHTML = "";
+    if (!marcados.includes(i)) e.innerHTML = "";
   });
-  reinicia();
+  if (marcados.length < 13) reinicia();
+  else finalizaJogo();
   item.innerHTML = escolha;
 }
 
+//após a 3ª rodada
 function finalizaRodada() {
   const valores = [];
+  //preenche valores com os resultados dos dados
   labels.forEach((e, i) => {
     switch (e.innerHTML) {
       case "⚀":
@@ -65,11 +76,14 @@ function finalizaRodada() {
         break;
     }
   });
+
+  //conta quantas vezes cada dado caiu
   const contador = {};
   for (let elemento of valores) {
     contador[elemento] = (contador[elemento] || 0) + 1;
   }
 
+  //adiciona a opção de escolha nos itens ainda não escolhidos.
   jogos[jogada].forEach((e, i) => {
     const clickHandler = selecionado.bind(null, e, i);
     if (!marcados.includes(i)) {
@@ -104,6 +118,7 @@ function finalizaRodada() {
 
   //SEÇÃO INFERIOR
   //trinca
+  if (!marcados.includes(9)){
   jogos[jogada][9].innerHTML = 0;
   for (const prop in contador) {
     if (contador[prop] >= 3) {
@@ -113,7 +128,7 @@ function finalizaRodada() {
       });
       jogos[jogada][9].innerHTML = total;
     }
-  }
+  }}
   //quadra
   jogos[jogada][10].innerHTML = 0;
   for (const prop in contador) {
@@ -225,6 +240,15 @@ function reinicia() {
     e.removeEventListener("click", e.clickHandler);
   });
   // proxima.style.display = "none";
+}
+
+function finalizaJogo() {
+  let soma = 0;
+  jogos[jogada].forEach((e) => {
+    let valor = parseInt(e.innerHTML)
+    if(!isNaN(valor)) soma += valor;
+  });
+  console.log(soma);
 }
 
 // proxima.addEventListener("click", (e) => {
