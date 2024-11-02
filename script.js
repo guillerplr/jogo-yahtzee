@@ -253,13 +253,37 @@ function reinicia() {
 }
 
 function finalizaJogo() {
-  let soma = 0;
-  jogos[jogada].forEach((e,i) => {
-    let valor = parseInt(e.innerHTML);
-    if (!isNaN(valor)) soma += valor;
-    if(i == 5 && soma > 63) som += 35;
-  });
-  console.log(soma);
+  let somasup = 0;
+  let somainf = 0;
+  for (let i = 0; i < 6; i++) {
+    let valor = parseInt(jogos[jogada][i].innerHTML);
+    if (!isNaN(valor)) somasup += valor;
+  }
+  jogos[jogada][6].innerHTML = somasup;
+  if(somasup > 63){
+    jogos[jogada][7].innerHTML = 35;
+    jogos[jogada][8].innerHTML = somasup + 35;
+    jogos[jogada][19].innerHTML = somasup + 35;
+  }else{
+    jogos[jogada][7].innerHTML = 0;
+    jogos[jogada][8].innerHTML = somasup;
+    jogos[jogada][19].innerHTML = somasup + 35;
+  }
+
+  for(let i = 9; i<16; i++){
+    let valor = parseInt(jogos[jogada][i].innerHTML);
+    if (!isNaN(valor)) somainf += valor;
+  }
+  jogos[jogada][18].innerHTML = somainf;
+  jogos[jogada][20].innerHTML = somainf + somasup;
+
+
+  // jogos[jogada].forEach((e,i) => {
+  //   let valor = parseInt(e.innerHTML);
+  //   if (!isNaN(valor)) soma += valor;
+  //   if(i == 5 && soma > 63) som += 35;
+  // });
+  // console.log(soma);
 }
 
 // proxima.addEventListener("click", (e) => {
