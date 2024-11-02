@@ -118,83 +118,93 @@ function finalizaRodada() {
 
   //SEÇÃO INFERIOR
   //trinca
-  if (!marcados.includes(9)){
-  jogos[jogada][9].innerHTML = 0;
-  for (const prop in contador) {
-    if (contador[prop] >= 3) {
-      let total = 0;
-      valores.forEach((e) => {
-        total += e;
-      });
-      jogos[jogada][9].innerHTML = total;
+  if (!marcados.includes(9)) {
+    jogos[jogada][9].innerHTML = 0;
+    for (const prop in contador) {
+      if (contador[prop] >= 3) {
+        let total = 0;
+        valores.forEach((e) => {
+          total += e;
+        });
+        jogos[jogada][9].innerHTML = total;
+      }
     }
-  }}
+  }
   //quadra
-  jogos[jogada][10].innerHTML = 0;
-  for (const prop in contador) {
-    if (contador[prop] >= 4) {
-      let total = 0;
-      valores.forEach((e) => {
-        total += e;
-      });
-      jogos[jogada][10].innerHTML = total;
+  if (!marcados.includes(10)) {
+    jogos[jogada][10].innerHTML = 0;
+    for (const prop in contador) {
+      if (contador[prop] >= 4) {
+        let total = 0;
+        valores.forEach((e) => {
+          total += e;
+        });
+        jogos[jogada][10].innerHTML = total;
+      }
     }
   }
   //fullhouse
-  jogos[jogada][11].innerHTML = 0;
-  if (Object.keys(contador).length == 2) {
-    for (const prop in contador) {
-      if (contador[prop] == 3 || contador[prop] == 2) {
-        jogos[jogada][11].innerHTML = 25;
+  if (!marcados.includes(11)) {
+    jogos[jogada][11].innerHTML = 0;
+    if (Object.keys(contador).length == 2) {
+      for (const prop in contador) {
+        if (contador[prop] == 3 || contador[prop] == 2) {
+          jogos[jogada][11].innerHTML = 25;
+        }
       }
     }
   }
   //sequencia menor
-  jogos[jogada][12].innerHTML = 0;
-  if (Object.keys(contador).length == 4) {
-    if (contador["1"] && contador["2"] && contador["3"] && contador["4"])
-      jogos[jogada][12].innerHTML = 30;
-    if (contador["5"] && contador["2"] && contador["3"] && contador["4"])
-      jogos[jogada][12].innerHTML = 30;
-    if (contador["5"] && contador["6"] && contador["3"] && contador["4"])
-      jogos[jogada][12].innerHTML = 30;
+  if (!marcados.includes(12)) {
+    jogos[jogada][12].innerHTML = 0;
+    if (Object.keys(contador).length == 4) {
+      if (contador["1"] && contador["2"] && contador["3"] && contador["4"])
+        jogos[jogada][12].innerHTML = 30;
+      if (contador["5"] && contador["2"] && contador["3"] && contador["4"])
+        jogos[jogada][12].innerHTML = 30;
+      if (contador["5"] && contador["6"] && contador["3"] && contador["4"])
+        jogos[jogada][12].innerHTML = 30;
+    }
   }
-
   //sequencia maior
-  jogos[jogada][13].innerHTML = 0;
-  if (Object.keys(contador).length == 5) {
-    if (
-      contador["1"] &&
-      contador["2"] &&
-      contador["3"] &&
-      contador["4"] &&
-      contador["5"]
-    )
-      jogos[jogada][13].innerHTML = 40;
-    if (
-      contador["6"] &&
-      contador["2"] &&
-      contador["3"] &&
-      contador["4"] &&
-      contador["5"]
-    )
-      jogos[jogada][13].innerHTML = 40;
+  if (!marcados.includes(13)) {
+    jogos[jogada][13].innerHTML = 0;
+    if (Object.keys(contador).length == 5) {
+      if (
+        contador["1"] &&
+        contador["2"] &&
+        contador["3"] &&
+        contador["4"] &&
+        contador["5"]
+      )
+        jogos[jogada][13].innerHTML = 40;
+      if (
+        contador["6"] &&
+        contador["2"] &&
+        contador["3"] &&
+        contador["4"] &&
+        contador["5"]
+      )
+        jogos[jogada][13].innerHTML = 40;
+    }
   }
   //yahtzee
-  jogos[jogada][14].innerHTML = 0;
-  if (Object.keys(contador).length == 1) {
-    jogos[jogada][14].innerHTML = 50;
+  if (!marcados.includes(14)) {
+    jogos[jogada][14].innerHTML = 0;
+    if (Object.keys(contador).length == 1) {
+      jogos[jogada][14].innerHTML = 50;
+    }
   }
-
   //chance
-  jogos[jogada][15].innerHTML = 0;
-  let chance = 0;
-  valores.forEach((e) => {
-    chance += e;
-  });
-  jogos[jogada][15].innerHTML = chance;
+  if (!marcados.includes(15)) {
+    jogos[jogada][15].innerHTML = 0;
+    let chance = 0;
+    valores.forEach((e) => {
+      chance += e;
+    });
+    jogos[jogada][15].innerHTML = chance;
+  }
 }
-
 function handleClick(btn) {
   btn.preventDefault();
 
@@ -244,9 +254,10 @@ function reinicia() {
 
 function finalizaJogo() {
   let soma = 0;
-  jogos[jogada].forEach((e) => {
-    let valor = parseInt(e.innerHTML)
-    if(!isNaN(valor)) soma += valor;
+  jogos[jogada].forEach((e,i) => {
+    let valor = parseInt(e.innerHTML);
+    if (!isNaN(valor)) soma += valor;
+    if(i == 5 && soma > 63) som += 35;
   });
   console.log(soma);
 }
