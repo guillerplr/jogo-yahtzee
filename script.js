@@ -208,6 +208,10 @@ function finalizaRodada() {
 function handleClick(btn) {
   btn.preventDefault();
 
+  dados.forEach((e) => {
+    e.nextElementSibling.style.color = "#FFF";
+  });
+
   if (rodada < 2) {
     tentativas[rodada].classList.add("foi");
     dados.forEach((d) => {
@@ -218,6 +222,7 @@ function handleClick(btn) {
     // proxima.style.display = "block";
     tentativas[rodada].classList.add("foi");
     dados.forEach((d) => {
+      d.nextElementSibling.style.color = "#0A0";
       d.disabled = true;
     });
   }
@@ -225,7 +230,17 @@ function handleClick(btn) {
 
   dados.forEach((d, i) => {
     if (!d.checked) {
-      labels[i].innerHTML = rolar();
+
+      let intervalo = 100;
+
+      const dadoRolando = function () {
+        labels[i].innerHTML = rolar();
+        intervalo = intervalo * 1.3;
+        if (intervalo < 1000) {
+          setTimeout(dadoRolando, intervalo);
+        }
+      };
+      dadoRolando();
     }
   });
   if (rodada == 3) {
@@ -240,6 +255,7 @@ function reinicia() {
   dados.forEach((d) => {
     d.checked = false;
     d.disabled = true;
+    d.nextElementSibling.style.color = "#666";
   });
   rodada = 0;
   botao.disabled = false;
@@ -260,23 +276,22 @@ function finalizaJogo() {
     if (!isNaN(valor)) somasup += valor;
   }
   jogos[jogada][6].innerHTML = somasup;
-  if(somasup > 63){
+  if (somasup > 63) {
     jogos[jogada][7].innerHTML = 35;
     jogos[jogada][8].innerHTML = somasup + 35;
     jogos[jogada][19].innerHTML = somasup + 35;
-  }else{
+  } else {
     jogos[jogada][7].innerHTML = 0;
     jogos[jogada][8].innerHTML = somasup;
     jogos[jogada][19].innerHTML = somasup + 35;
   }
 
-  for(let i = 9; i<16; i++){
+  for (let i = 9; i < 16; i++) {
     let valor = parseInt(jogos[jogada][i].innerHTML);
     if (!isNaN(valor)) somainf += valor;
   }
   jogos[jogada][18].innerHTML = somainf;
   jogos[jogada][20].innerHTML = somainf + somasup;
-
 
   // jogos[jogada].forEach((e,i) => {
   //   let valor = parseInt(e.innerHTML);
